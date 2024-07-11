@@ -1,5 +1,6 @@
 package com.app.agilmobile.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -10,6 +11,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -26,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,7 +36,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.app.agilmobile.ui.theme.Black
 import com.app.agilmobile.ui.theme.Black30
+import com.app.agilmobile.ui.theme.Blue
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange
 
@@ -48,7 +53,7 @@ fun LoginScreen() {
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp),
+            verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxSize()
                 .fillMaxHeight()
@@ -58,15 +63,19 @@ fun LoginScreen() {
                 painter = painterResource(R.drawable.agil_logistics_logo),
                 contentDescription = "Agil Logistics Logo",
                 modifier = Modifier
-                    .size(300.dp)
-                    .height(50.dp)
+                    .fillMaxWidth()
+                    .height(120.dp)
             )
+            Spacer(modifier = Modifier.height(22.dp))
+
             Text(
                 text = "Login",
                 fontSize = 36.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                fontWeight = FontWeight.ExtraBold,
+                color = Blue,
             )
+            Spacer(modifier = Modifier.height(60.dp))
+
             var email by remember {
                 mutableStateOf("")
             }
@@ -80,9 +89,9 @@ fun LoginScreen() {
                 onValueChange = { email = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(1.dp, Grey, RoundedCornerShape(8.dp))
-                    .background(Color.Transparent, RoundedCornerShape(8.dp)),
-            label = { Text("E-mail") },
+                    .background(Color.White, RoundedCornerShape(16.dp))
+                    .border(1.dp, Black30, RoundedCornerShape(16.dp)),
+                label = { Text("E-mail") },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.AccountCircle,
@@ -90,16 +99,20 @@ fun LoginScreen() {
                     )
                 },
                 colors = TextFieldDefaults.colors(
-                    focusedIndicatorColor = Orange
+                    unfocusedIndicatorColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent,
+                    ),
                 )
-            )
+
+            Spacer(modifier = Modifier.height(22.dp))
 
             TextField(
                 value = password,
                 onValueChange = { password = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(1.dp, Grey, RoundedCornerShape(8.dp)),
+                    .background(Color.White, RoundedCornerShape(16.dp))
+                    .border(1.dp, Black30, RoundedCornerShape(16.dp)),
                 label = { Text("Senha") },
                 leadingIcon = {
                     Icon(
@@ -108,20 +121,24 @@ fun LoginScreen() {
                     )
                 },
                 colors = TextFieldDefaults.colors(
-                    disabledContainerColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent
                 ),
                 visualTransformation = PasswordVisualTransformation()
             )
 
+            Spacer(modifier = Modifier.height(8.dp))
+
             Text(
                 text = "Esqueci a senha!",
                 fontSize = 14.sp,
-                color = Color.Gray,
+                fontWeight = FontWeight.Bold,
+                color = Blue,
                 modifier = Modifier
                     .align(Alignment.End)
             )
 
-
+            Spacer(modifier = Modifier.height(22.dp))
 
             Button(
                 onClick = { /* Ação de login */ },
@@ -130,13 +147,14 @@ fun LoginScreen() {
                 ),
                 modifier = Modifier
                     .width(148.dp)
-                    .height(48.dp)
-
-
+                    .height(56.dp),
+                shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
                     text = "Entrar",
                     color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.ExtraBold
                 )
             }
         }

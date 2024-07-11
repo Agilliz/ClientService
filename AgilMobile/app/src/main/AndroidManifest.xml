@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgilMobile"
         tools:targetApi="31">
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
