@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.app.agilmobile.ui.screens.LoginScreen
+import com.app.agilmobile.ui.screens.MainScreen
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 
 
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AgilMobileTheme {
-                    LoginScreen()
+                    MainScreen()
             }
         }
     }
