@@ -29,7 +29,7 @@ fun MainScreen(){
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxHeight()
-            .windowInsetsPadding(insets = WindowInsets(top = 20.dp, bottom = 40.dp))
+            .windowInsetsPadding(insets = WindowInsets(top = 20.dp, bottom = 50.dp))
 
     ) {
         TopBar()
