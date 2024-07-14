@@ -1,6 +1,5 @@
 package com.app.agilmobile.ui.screens
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -11,14 +10,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Password
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,14 +31,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.theme.AgilMobileTheme
-import com.app.agilmobile.ui.theme.Black
 import com.app.agilmobile.ui.theme.Black30
 import com.app.agilmobile.ui.theme.Blue
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen() {
     Box(
@@ -101,8 +93,8 @@ fun LoginScreen() {
                 colors = TextFieldDefaults.colors(
                     unfocusedIndicatorColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent,
-                    ),
-                )
+                ),
+            )
 
             Spacer(modifier = Modifier.height(22.dp))
 
@@ -141,7 +133,7 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(22.dp))
 
             Button(
-                onClick = { /* Ação de login */ },
+                onClick = {},
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Orange
                 ),

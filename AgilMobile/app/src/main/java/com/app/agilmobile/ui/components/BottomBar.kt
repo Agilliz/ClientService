@@ -122,7 +122,7 @@ fun BottomBar() {
             ) {
                 Icon(
                     imageVector = Icons.Default.LocationOn,
-                    contentDescription = "Location",
+                    contentDescription = "Localização",
                     tint = Color.White,
                     modifier = Modifier
                         .fillMaxWidth()
