@@ -1,48 +1,49 @@
 package com.app.agilmobile.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.consumeWindowInsets
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowInsetsCompat
 import com.app.agilmobile.ui.components.BottomBar
 import com.app.agilmobile.ui.components.TopBar
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.app.agilmobile.ui.theme.Orange30
 
 @Composable
-fun MainScreen(){
-
-
+fun MainScreen() {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxHeight()
-            .windowInsetsPadding(insets = WindowInsets(top = 20.dp, bottom = 50.dp))
-
+            .windowInsetsPadding(WindowInsets.statusBars)
+            .windowInsetsPadding(WindowInsets.navigationBars)
+            .padding(start = 4.dp, end = 4.dp)
     ) {
         TopBar()
-        Box(){
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .border(2.dp, Orange30, RoundedCornerShape(16.dp))
+                .padding(4.dp)
+        ) {
 
         }
+        Spacer(modifier = Modifier.height(4.dp))
         BottomBar()
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview(){
+fun MainScreenPreview() {
     AgilMobileTheme {
         MainScreen()
     }

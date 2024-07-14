@@ -7,13 +7,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AllInbox
-import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.FilePresent
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.QuestionMark
-import androidx.compose.material.icons.filled.RepeatOneOn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -37,21 +34,18 @@ fun BottomBar() {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp)
+                .height(65.dp)
                 .background(Color.Transparent)
-                .padding(top = 4.dp, start = 4.dp, end = 4.dp)
                 .border(2.dp, Orange30, RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-
                 IconButton(
                     onClick = { },
                     modifier = Modifier.height(20.dp)
                 ) {
                     Icon(
                         imageVector = Icons.Default.Home,
-                        contentDescription = "Localized description"
+                        contentDescription = "Home"
                     )
                 }
                 Text(
@@ -68,7 +62,7 @@ fun BottomBar() {
                 ) {
                     Icon(
                         imageVector = Icons.Default.AllInbox,
-                        contentDescription = "Localized description"
+                        contentDescription = "Entregas"
                     )
                 }
                 Text(
@@ -87,7 +81,7 @@ fun BottomBar() {
                 ) {
                     Icon(
                         imageVector = Icons.Default.FilePresent,
-                        contentDescription = "Localized description"
+                        contentDescription = "Relatórios"
                     )
                 }
                 Text(
@@ -104,7 +98,7 @@ fun BottomBar() {
                 ) {
                     Icon(
                         imageVector = Icons.Default.QuestionMark,
-                        contentDescription = "Localized description"
+                        contentDescription = "Vazio"
                     )
                 }
                 Text(
@@ -113,7 +107,6 @@ fun BottomBar() {
                     fontSize = 12.sp
                 )
             }
-
         }
 
         Box(
@@ -129,7 +122,7 @@ fun BottomBar() {
             ) {
                 Icon(
                     imageVector = Icons.Default.LocationOn,
-                    contentDescription = "Localized description",
+                    contentDescription = "Location",
                     tint = Color.White,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -147,4 +140,3 @@ fun BottomBarPreview() {
         BottomBar()
     }
 }
-
