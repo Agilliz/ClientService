@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AgilMobileTheme {
-                    LoginScreen()
+                MainScreen()
             }
         }
     }
@@ -30,6 +30,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AgilMobilePreview() {
     AgilMobileTheme {
-        LoginScreen()
+        MainScreen()
     }
 }

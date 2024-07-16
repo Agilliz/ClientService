@@ -3,17 +3,24 @@ package com.app.agilmobile.ui.screens
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.app.agilmobile.ui.components.BottomBar
 import com.app.agilmobile.ui.components.TopBar
+import com.app.agilmobile.ui.sections.deliveries.*
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Orange30
 
+enum class Section {
+    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY
+}
+
 @Composable
 fun MainScreen() {
+    var currentSection by remember { mutableStateOf(Section.HOME) }
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -30,10 +37,16 @@ fun MainScreen() {
                 .border(2.dp, Orange30, RoundedCornerShape(16.dp))
                 .padding(4.dp)
         ) {
-
+            when (currentSection) {
+                Section.HOME -> HomeSection()
+                Section.SCRIPTS -> ScriptsSection()
+                Section.PACKAGES -> PackagesSection()
+                Section.NEXT_DELIVERY -> NextDeliverySection()
+                Section.COMPLETE_DELIVERY -> CompleteDeliverySection()
+            }
         }
         Spacer(modifier = Modifier.height(4.dp))
-        BottomBar()
+        BottomBar(onSectionSelected = { currentSection = it })
     }
 }
 

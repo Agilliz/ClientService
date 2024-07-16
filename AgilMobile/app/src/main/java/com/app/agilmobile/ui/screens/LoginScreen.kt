@@ -1,7 +1,5 @@
 package com.app.agilmobile.ui.screens
 
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.ui.graphics.Color
@@ -12,8 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Password
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -30,7 +27,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.agilmobile.R
+import com.app.agilmobile.ui.components.ButtonOrange
+import com.app.agilmobile.ui.components.TextFieldStandard
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.app.agilmobile.ui.theme.Black
 import com.app.agilmobile.ui.theme.Black30
 import com.app.agilmobile.ui.theme.Blue
 import com.app.agilmobile.ui.theme.Grey
@@ -64,8 +64,9 @@ fun LoginScreen() {
                 text = "Login",
                 fontSize = 36.sp,
                 fontWeight = FontWeight.ExtraBold,
-                color = Blue,
+                color = Black,
             )
+            
             Spacer(modifier = Modifier.height(60.dp))
 
             var email by remember {
@@ -76,47 +77,21 @@ fun LoginScreen() {
                 mutableStateOf("")
             }
 
-            TextField(
-                value = email,
-                onValueChange = { email = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White, RoundedCornerShape(16.dp))
-                    .border(1.dp, Black30, RoundedCornerShape(16.dp)),
-                label = { Text("E-mail") },
-                leadingIcon = {
-                    Icon(
-                        imageVector = Icons.Default.AccountCircle,
-                        contentDescription = "Icon User"
-                    )
-                },
-                colors = TextFieldDefaults.colors(
-                    unfocusedIndicatorColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent,
-                ),
+            TextFieldStandard(
+                text = email,
+                onTextChange = { email = it },
+                label = "E-mail",
+                leadingIcon = Icons.Default.AccountCircle
             )
 
             Spacer(modifier = Modifier.height(22.dp))
 
-            TextField(
-                value = password,
-                onValueChange = { password = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White, RoundedCornerShape(16.dp))
-                    .border(1.dp, Black30, RoundedCornerShape(16.dp)),
-                label = { Text("Senha") },
-                leadingIcon = {
-                    Icon(
-                        imageVector = Icons.Default.Password,
-                        contentDescription = "Icon Password"
-                    )
-                },
-                colors = TextFieldDefaults.colors(
-                    unfocusedIndicatorColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent
-                ),
-                visualTransformation = PasswordVisualTransformation()
+            TextFieldStandard(
+                text = password,
+                onTextChange = { password = it },
+                label = "Senha",
+                leadingIcon = Icons.Default.Info,
+                isPassword = true
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -132,23 +107,17 @@ fun LoginScreen() {
 
             Spacer(modifier = Modifier.height(22.dp))
 
-            Button(
-                onClick = {},
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Orange
-                ),
-                modifier = Modifier
-                    .width(148.dp)
-                    .height(56.dp),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text(
-                    text = "Entrar",
-                    color = Color.White,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
-            }
+            ButtonOrange(
+                text = "Entrar",
+                onClick = { },
+                buttonColor = Orange,
+                textColor = Color.White,
+                buttonWidth = 148,
+                buttonHeight = 56,
+                cornerRadius = 12,
+                defaultElevation = 4,
+                pressedElevation = 6
+            )
         }
     }
 }
