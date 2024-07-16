@@ -34,7 +34,7 @@ fun MainScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
-                .border(2.dp, Orange30, RoundedCornerShape(16.dp))
+//                .border(2.dp, Orange30, RoundedCornerShape(16.dp))
                 .padding(4.dp)
         ) {
             when (currentSection) {
