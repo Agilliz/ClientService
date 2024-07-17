@@ -8,9 +8,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,21 +44,17 @@ fun CardService(
         elevation = CardDefaults.cardElevation(elevation),
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
-            .padding(8.dp)
-            .clickable(
-                onClick = {
-                    isPressed = true
-                    onCardClick()
-                    isPressed = false
-                },
-                onClickLabel = null,
-                role = null
-            )
+            .background(Color.Transparent)
+            .padding(8.dp),
+        onClick = {
+            isPressed = true
+            onCardClick()
+            isPressed = false
+        },
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .clip(shape = RoundedCornerShape(16.dp))
                 .background(Color.White)
                 .padding(8.dp)
                 .height(IntrinsicSize.Min)

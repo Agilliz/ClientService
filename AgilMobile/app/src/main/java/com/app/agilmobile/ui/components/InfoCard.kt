@@ -31,7 +31,6 @@ fun InfoCard(
     info3: String,
     onCardClick: () -> Unit,
 ) {
-
     var isPressed by remember { mutableStateOf(false) }
 
     val elevation = if (isPressed) 8.dp else 4.dp

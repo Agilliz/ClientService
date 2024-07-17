@@ -1,8 +1,10 @@
 package com.app.agilmobile.ui.components
 
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,7 +13,6 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,17 +45,16 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clickable { onSectionSelected(Section.HOME) }
+                    .clickable (
+
+                    ){
+                        onSectionSelected(Section.HOME) }
             ) {
-                IconButton(
-                    onClick = { onSectionSelected(Section.HOME) },
+                Icon(
+                    imageVector = Icons.Default.Home,
+                    contentDescription = "Home",
                     modifier = Modifier.height(20.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Home,
-                        contentDescription = "Home"
-                    )
-                }
+                )
                 Text(
                     text = "Home",
                     fontWeight = FontWeight.SemiBold,
@@ -67,15 +67,11 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                 modifier = Modifier
                     .clickable { onSectionSelected(Section.PACKAGES) }
             ) {
-                IconButton(
-                    onClick = { onSectionSelected(Section.PACKAGES) },
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "Entregas",
                     modifier = Modifier.height(20.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Info,
-                        contentDescription = "Entregas"
-                    )
-                }
+                )
                 Text(
                     text = "Entregas",
                     fontWeight = FontWeight.SemiBold,
@@ -90,15 +86,11 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                 modifier = Modifier
                     .clickable { onSectionSelected(Section.NEXT_DELIVERY) }
             ) {
-                IconButton(
-                    onClick = { onSectionSelected(Section.NEXT_DELIVERY) },
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "Relatórios",
                     modifier = Modifier.height(20.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Info,
-                        contentDescription = "Relatórios"
-                    )
-                }
+                )
                 Text(
                     text = "Relatórios",
                     fontWeight = FontWeight.SemiBold,
@@ -111,15 +103,11 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                 modifier = Modifier
                     .clickable { onSectionSelected(Section.COMPLETE_DELIVERY) }
             ) {
-                IconButton(
-                    onClick = { onSectionSelected(Section.COMPLETE_DELIVERY) },
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = "Vazio",
                     modifier = Modifier.height(20.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Info,
-                        contentDescription = "Vazio"
-                    )
-                }
+                )
                 Text(
                     text = "Vazio",
                     fontWeight = FontWeight.SemiBold,
@@ -137,18 +125,13 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                 .background(Orange, shape = CircleShape)
                 .clickable { onSectionSelected(Section.NEXT_DELIVERY) }
         ) {
-            IconButton(
-                onClick = { onSectionSelected(Section.NEXT_DELIVERY) }
-            ) {
-                Icon(
-                    imageVector = Icons.Default.LocationOn,
-                    contentDescription = "Localização",
-                    tint = Color.White,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight()
-                )
-            }
+            Icon(
+                imageVector = Icons.Default.LocationOn,
+                contentDescription = "Localização",
+                tint = Color.White,
+                modifier = Modifier
+                    .size(50.dp)
+            )
         }
     }
 }
