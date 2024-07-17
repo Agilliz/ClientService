@@ -33,12 +33,10 @@ fun CardService(
     imageResId: Int,
     icon: ImageVector,
     onCardClick: () -> Unit,
-    defaultElevation: Float,
-    pressedElevation: Float,
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
-    val elevation = if (isPressed) pressedElevation.dp else defaultElevation.dp
+    val elevation = if (isPressed) 8f.dp else 4f.dp
 
     Card(
         elevation = CardDefaults.cardElevation(elevation),
