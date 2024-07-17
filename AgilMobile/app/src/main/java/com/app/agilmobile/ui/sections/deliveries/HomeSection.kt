@@ -4,9 +4,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.ThumbUp
+import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -22,6 +25,7 @@ import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.components.CardService
 import com.app.agilmobile.ui.components.InfoCard
+import com.app.agilmobile.ui.components.InfoItem
 import com.app.agilmobile.ui.components.SearchBar
 import com.app.agilmobile.ui.theme.Orange
 
@@ -58,7 +62,7 @@ fun HomeSection() {
                         Text(
                             text = "Bem Vindo, Carlos",
                             fontWeight = FontWeight.SemiBold,
-                            fontSize = 14.sp,
+                            fontSize = 18.sp,
                             modifier = Modifier
                                 .padding(bottom = 8.dp)
                         )
@@ -101,12 +105,11 @@ fun HomeSection() {
             ) {
                 SearchBar()
                 InfoCard(
-                    icon1 = Icons.Default.Info,
-                    info1 = "Zona Leste 1",
-                    icon2 = Icons.Default.Info,
-                    info2 = "Ceps: 080 - 081 - 082 - 083",
-                    icon3 = Icons.Default.Info,
-                    info3 = "Pacotes: 35",
+                    infoItems = listOf(
+                        InfoItem(Icons.Default.TravelExplore, "Zona Leste 1"),
+                        InfoItem(Icons.Default.LocationOn, "Ceps: 080 - 081 - 082 - 083"),
+                        InfoItem(Icons.Default.Apps, "Pacotes: 35")
+                    ),
                     onCardClick = {},
                 )
             }
@@ -118,7 +121,7 @@ fun HomeSection() {
                     .fillMaxWidth()
             ) {
                 Text(
-                    text = "Tipo de Serviços",
+                    text = "Tipos de Serviços",
                     fontWeight = FontWeight.Bold,
                     fontSize = 28.sp
                 )

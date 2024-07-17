@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Icon
@@ -49,7 +50,7 @@ fun TopBar() {
                 .background(Orange, RoundedCornerShape(14.dp))
         ) {
             Icon(
-                imageVector = Icons.Default.Info,
+                imageVector = Icons.Default.ChatBubble,
                 contentDescription = "Chat",
                 tint = Color.White
             )

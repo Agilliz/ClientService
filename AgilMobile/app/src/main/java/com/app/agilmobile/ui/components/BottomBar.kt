@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AllInbox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.TextSnippet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -68,7 +70,7 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                     .clickable { onSectionSelected(Section.PACKAGES) }
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
+                    imageVector = Icons.Default.AllInbox,
                     contentDescription = "Entregas",
                     modifier = Modifier.height(20.dp)
                 )
@@ -87,7 +89,7 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                     .clickable { onSectionSelected(Section.NEXT_DELIVERY) }
             ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
+                    imageVector = Icons.Default.TextSnippet,
                     contentDescription = "Relatórios",
                     modifier = Modifier.height(20.dp)
                 )
