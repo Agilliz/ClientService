@@ -23,13 +23,13 @@ import androidx.compose.ui.unit.dp
 import com.app.agilmobile.ui.theme.Orange30
 
 @Composable
-fun SearchBar() {
-
-    val searchQuery = remember { mutableStateOf(TextFieldValue("")) }
-
+fun SearchBar(
+    searchQuery: String,
+    onSearchQueryChanged: (String) -> Unit
+) {
     TextField(
-        value = searchQuery.value,
-        onValueChange = { searchQuery.value = it },
+        value = searchQuery,
+        onValueChange = { onSearchQueryChanged(it) },
         modifier = Modifier
             .clip(RoundedCornerShape(12.dp))
             .fillMaxWidth()
@@ -52,8 +52,10 @@ fun SearchBar() {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun SearchBarPreview() {
-    SearchBar()
-}
+
+
+//@Preview(showBackground = true)
+//@Composable
+//fun SearchBarPreview() {
+//    SearchBar()
+//}

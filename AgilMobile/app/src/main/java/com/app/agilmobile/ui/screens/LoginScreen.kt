@@ -26,6 +26,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.components.ButtonOrange
 import com.app.agilmobile.ui.components.TextFieldStandard
@@ -37,7 +39,7 @@ import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -109,14 +111,17 @@ fun LoginScreen() {
 
             ButtonOrange(
                 text = "Entrar",
-                onClick = { },
+                fontSize = 26,
+                padding = 8,
+                onClick = { navController.navigate("mainScreen") },
                 buttonColor = Orange,
                 textColor = Color.White,
                 buttonWidth = 148,
-                buttonHeight = 56,
+                buttonHeight = 68,
                 cornerRadius = 12,
                 defaultElevation = 4,
-                pressedElevation = 6
+                pressedElevation = 6,
+
             )
         }
     }
@@ -127,6 +132,7 @@ fun LoginScreen() {
 @Composable
 fun LoginScreenPreview() {
     AgilMobileTheme {
-        LoginScreen()
+        val navController = rememberNavController()
+        LoginScreen(navController)
     }
 }

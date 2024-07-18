@@ -1,6 +1,7 @@
 package com.app.agilmobile.ui.components
 
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -17,6 +18,8 @@ import com.app.agilmobile.ui.theme.Orange
 @Composable
 fun ButtonOrange(
     text: String,
+    fontSize: Int,
+    padding: Int,
     onClick: () -> Unit,
     buttonColor: Color,
     textColor: Color ,
@@ -31,7 +34,8 @@ fun ButtonOrange(
         colors = ButtonDefaults.buttonColors(containerColor = buttonColor),
         modifier = Modifier
             .width(buttonWidth.dp)
-            .height(buttonHeight.dp),
+            .height(buttonHeight.dp)
+            .padding(padding.dp),
         shape = RoundedCornerShape(cornerRadius.dp),
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = defaultElevation.dp,
@@ -41,7 +45,7 @@ fun ButtonOrange(
         Text(
             text = text,
             color = textColor,
-            fontSize = 20.sp,
+            fontSize = fontSize.sp,
             fontWeight = FontWeight.SemiBold
         )
     }

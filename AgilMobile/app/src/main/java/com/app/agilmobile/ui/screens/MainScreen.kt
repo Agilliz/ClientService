@@ -7,9 +7,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.ui.components.BottomBar
 import com.app.agilmobile.ui.components.TopBar
 import com.app.agilmobile.ui.sections.deliveries.*
+import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Orange30
 
@@ -18,7 +21,7 @@ enum class Section {
 }
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     var currentSection by remember { mutableStateOf(Section.HOME) }
 
     Column(
@@ -54,6 +57,7 @@ fun MainScreen() {
 @Composable
 fun MainScreenPreview() {
     AgilMobileTheme {
-        MainScreen()
+        val navController = rememberNavController()
+        MainScreen(navController)
     }
 }

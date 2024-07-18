@@ -103,15 +103,7 @@ fun HomeSection() {
                     .fillMaxWidth()
                     .weight(1f)
             ) {
-                SearchBar()
-                InfoCard(
-                    infoItems = listOf(
-                        InfoItem(Icons.Default.TravelExplore, "Zona Leste 1"),
-                        InfoItem(Icons.Default.LocationOn, "Ceps: 080 - 081 - 082 - 083"),
-                        InfoItem(Icons.Default.Apps, "Pacotes: 35")
-                    ),
-                    onCardClick = {},
-                )
+
             }
 
             Spacer(modifier = Modifier.height(10.dp))
