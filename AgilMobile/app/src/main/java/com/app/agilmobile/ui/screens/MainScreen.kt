@@ -41,7 +41,6 @@ fun MainScreen(navController: NavHostController) {
             modifier = Modifier
                 .fillMaxHeight()
                 .windowInsetsPadding(WindowInsets.statusBars)
-                .windowInsetsPadding(WindowInsets.navigationBars)
                 .padding(start = 4.dp, end = 4.dp)
         ) {
             TopBar(onMenuClick = { coroutineScope.launch { drawerState.open() } })
