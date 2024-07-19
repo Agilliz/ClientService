@@ -64,7 +64,7 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
             }
 
             Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { navController.navigate("serviceScreen") }) {
+                modifier = Modifier.clickable { navController.navigate("service_screen") }) {
                 Icon(
                     imageVector = Icons.Default.AllInbox,
                     contentDescription = "Service",
@@ -76,26 +76,26 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
             }
 
             Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(Section.NEXT_DELIVERY) }) {
+                modifier = Modifier.clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.TextSnippet,
-                    contentDescription = "Relatórios",
+                    contentDescription = "Carteira",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Relatórios", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+                    text = "Carteira", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
             Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(Section.COMPLETE_DELIVERY) }) {
+                modifier = Modifier.clickable { onSectionSelected(Section.EMPTY_SECTION) }) {
                 Icon(
                     imageVector = Icons.Default.Info,
-                    contentDescription = "Vazio",
+                    contentDescription = "Icon Execution",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Vazio", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+                    text = "Em Execução", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
         }

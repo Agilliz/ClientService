@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.agilmobile.ui.components.ButtonOrange
 import com.app.agilmobile.ui.components.InfoCard
 import com.app.agilmobile.ui.components.InfoItem
 import com.app.agilmobile.ui.components.SearchBar
@@ -128,19 +127,19 @@ fun PackagesSection() {
                 .height(intrinsicSize = IntrinsicSize.Min)
                 .padding(12.dp)
         ) {
-            ButtonOrange(
-                text = "Adicionar",
-                fontSize = 16,
-                padding = 0,
-                onClick = { /**/ },
-                buttonColor = Orange,
-                textColor = Color.White,
-                buttonWidth = 126,
-                buttonHeight = 40,
-                cornerRadius = 6,
-                defaultElevation = 8,
-                pressedElevation = 4
-            )
+//            ButtonOrange(
+//                text = "Adicionar",
+//                fontSize = 16,
+//                padding = 0,
+//                onClick = { /**/ },
+//                buttonColor = Orange,
+//                textColor = Color.White,
+//                buttonWidth = 126,
+//                buttonHeight = 40,
+//                cornerRadius = 6,
+//                defaultElevation = 8,
+//                pressedElevation = 4
+//            )
         }
     }
 }

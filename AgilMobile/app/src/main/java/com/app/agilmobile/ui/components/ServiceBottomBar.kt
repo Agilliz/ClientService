@@ -54,7 +54,7 @@ fun ServiceBottomBar(
                 .background(Color.Transparent)
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { navController.navigate("mainScreen") }) {
+                modifier = Modifier.clickable { navController.navigate("main_screen") }) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",

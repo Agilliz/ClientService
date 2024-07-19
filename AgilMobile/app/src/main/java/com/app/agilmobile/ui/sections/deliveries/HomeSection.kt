@@ -117,15 +117,15 @@ fun HomeSection(navController: NavController) {
                         title = "Entregas",
                         imageResId = R.drawable.entregas,
                         icon = Icons.Default.ArrowForward,
-                        onClick = {navController.navigate("serviceScreen")},
-                        onSectionSelected = { navController.navigate("serviceScreen") },
+                        onClick = {navController.navigate("service_screen")},
+                        onSectionSelected = { navController.navigate("service_screen") },
                     )
                     CardService(
                         title = "Coletas",
                         imageResId = R.drawable.coletas,
                         icon = Icons.Default.ArrowForward,
-                        onClick = {navController.navigate("serviceScreen")},
-                        onSectionSelected = { navController.navigate("serviceScreen") },
+                        onClick = {navController.navigate("service_screen")},
+                        onSectionSelected = { navController.navigate("service_screen") },
                     )
                 }
             }

@@ -1,5 +1,6 @@
 package com.app.agilmobile.ui.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -13,36 +14,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.agilmobile.ui.theme.Orange
 
 @Composable
-fun ButtonOrange(
+fun ButtonStandard(
     text: String,
-    fontSize: Int,
-    padding: Int,
     onClick: () -> Unit,
     buttonColor: Color,
     textColor: Color,
-    buttonWidth: Int,
-    buttonHeight: Int,
     cornerRadius: Int,
-    defaultElevation: Int,
-    pressedElevation: Int
 ) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = buttonColor),
         modifier = Modifier
-            .width(buttonWidth.dp)
-            .height(buttonHeight.dp)
-            .padding(padding.dp),
+            .fillMaxWidth()
+            .height(80.dp)
+            .padding(vertical = 8.dp),
         shape = RoundedCornerShape(cornerRadius.dp),
         elevation = ButtonDefaults.buttonElevation(
-            defaultElevation = defaultElevation.dp, pressedElevation = pressedElevation.dp
+            defaultElevation = 4.dp, pressedElevation = 6.dp
         )
     ) {
         Text(
-            text = text, color = textColor, fontSize = fontSize.sp, fontWeight = FontWeight.SemiBold
+            text = text, color = textColor, fontSize = 24.sp, fontWeight = FontWeight.SemiBold
         )
     }
 }
