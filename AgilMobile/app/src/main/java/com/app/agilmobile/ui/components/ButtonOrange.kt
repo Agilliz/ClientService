@@ -22,7 +22,7 @@ fun ButtonOrange(
     padding: Int,
     onClick: () -> Unit,
     buttonColor: Color,
-    textColor: Color ,
+    textColor: Color,
     buttonWidth: Int,
     buttonHeight: Int,
     cornerRadius: Int,
@@ -38,15 +38,11 @@ fun ButtonOrange(
             .padding(padding.dp),
         shape = RoundedCornerShape(cornerRadius.dp),
         elevation = ButtonDefaults.buttonElevation(
-            defaultElevation = defaultElevation.dp,
-            pressedElevation = pressedElevation.dp
+            defaultElevation = defaultElevation.dp, pressedElevation = pressedElevation.dp
         )
     ) {
         Text(
-            text = text,
-            color = textColor,
-            fontSize = fontSize.sp,
-            fontWeight = FontWeight.SemiBold
+            text = text, color = textColor, fontSize = fontSize.sp, fontWeight = FontWeight.SemiBold
         )
     }
 }

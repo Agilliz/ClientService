@@ -24,8 +24,7 @@ import com.app.agilmobile.ui.theme.Orange30
 
 @Composable
 fun SearchBar(
-    searchQuery: String,
-    onSearchQueryChanged: (String) -> Unit
+    searchQuery: String, onSearchQueryChanged: (String) -> Unit
 ) {
     TextField(
         value = searchQuery,
@@ -39,8 +38,7 @@ fun SearchBar(
         trailingIcon = {
             IconButton(onClick = { }) {
                 Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = "Search Icon"
+                    imageVector = Icons.Default.Search, contentDescription = "Search Icon"
                 )
             }
         },
@@ -53,9 +51,9 @@ fun SearchBar(
 }
 
 
-
-//@Preview(showBackground = true)
-//@Composable
-//fun SearchBarPreview() {
-//    SearchBar()
-//}
+@Preview(showBackground = true)
+@Composable
+fun SearchBarPreview() {
+    val searchQuery = remember { mutableStateOf("") }
+    SearchBar(searchQuery = searchQuery.value, onSearchQueryChanged = { searchQuery.value = it })
+}

@@ -34,7 +34,8 @@ fun CardService(
     title: String,
     imageResId: Int,
     icon: ImageVector,
-    onCardClick: () -> Unit,
+    onClick: () -> Unit,
+    onSectionSelected: () -> Unit
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
@@ -45,12 +46,9 @@ fun CardService(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .background(Color.Transparent)
-            .padding(8.dp),
-        onClick = {
-            isPressed = true
-            onCardClick()
-            isPressed = false
-        },
+            .padding(8.dp)
+            .clickable { onSectionSelected },
+        onClick = onClick,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -60,9 +58,7 @@ fun CardService(
                 .height(IntrinsicSize.Min)
         ) {
             Text(
-                text = title,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 20.sp
+                text = title, fontWeight = FontWeight.SemiBold, fontSize = 20.sp
             )
 
             Row(

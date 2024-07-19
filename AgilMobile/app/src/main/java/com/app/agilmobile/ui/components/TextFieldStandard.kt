@@ -29,7 +29,7 @@ fun TextFieldStandard(
     isPassword: Boolean = false
 ) {
     val visualTransformation = if (isPassword) PasswordVisualTransformation()
-                                        else VisualTransformation.None
+    else VisualTransformation.None
 
 
     TextField(
@@ -43,8 +43,7 @@ fun TextFieldStandard(
         label = { Text(label) },
         leadingIcon = {
             Icon(
-                imageVector = leadingIcon,
-                contentDescription = "Icon"
+                imageVector = leadingIcon, contentDescription = "Icon"
             )
         },
         colors = TextFieldDefaults.colors(

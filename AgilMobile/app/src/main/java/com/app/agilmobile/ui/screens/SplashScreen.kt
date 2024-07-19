@@ -24,32 +24,32 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
-        LaunchedEffect(Unit) {
-            delay(3000)
-            navController.navigate("login") {
-                popUpTo("splash") { inclusive = true }
-            }
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Blue),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                painter = painterResource(R.drawable.agil_logistics_logo),
-                contentDescription = "Agil Logistics Logo",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-            )
+    LaunchedEffect(Unit) {
+        delay(3000)
+        navController.navigate("login") {
+            popUpTo("splash") { inclusive = true }
         }
     }
 
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Blue),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(R.drawable.agil_logistics_logo),
+            contentDescription = "Agil Logistics Logo",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(120.dp)
+        )
+    }
+}
+
 @Preview
 @Composable
-fun SplashScreenPreview(){
+fun SplashScreenPreview() {
     AgilMobileTheme {
         val navController = rememberNavController()
         SplashScreen(navController)

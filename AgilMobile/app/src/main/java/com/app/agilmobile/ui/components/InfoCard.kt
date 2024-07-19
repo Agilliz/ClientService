@@ -64,18 +64,15 @@ fun InfoCard(
                 onClick = {
                     isPressed = !isPressed
                     onCardClick()
-                },
-                modifier = Modifier
+                }, modifier = Modifier
                     .size(24.dp)
                     .align(Alignment.CenterVertically)
             ) {
                 Checkbox(
-                    checked = isPressed,
-                    onCheckedChange = {
+                    checked = isPressed, onCheckedChange = {
                         isPressed = it
                         onCardClick()
-                    },
-                    colors = CheckboxDefaults.colors(
+                    }, colors = CheckboxDefaults.colors(
                         checkedColor = textColor,
                         uncheckedColor = textColor,
                         checkmarkColor = Orange
@@ -92,10 +89,7 @@ fun InfoRow(item: InfoItem, textColor: Color) {
         Icon(imageVector = item.icon, contentDescription = null, tint = textColor)
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = item.info,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = textColor
+            text = item.info, fontSize = 16.sp, fontWeight = FontWeight.SemiBold, color = textColor
         )
     }
 }

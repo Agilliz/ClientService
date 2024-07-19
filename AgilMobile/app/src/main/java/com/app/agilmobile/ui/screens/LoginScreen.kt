@@ -1,5 +1,8 @@
 package com.app.agilmobile.ui.screens
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInVertically
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.ui.graphics.Color
@@ -14,6 +17,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,6 +44,11 @@ import com.app.agilmobile.ui.theme.Orange
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
+
+    var visible by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) {
+        visible = true
+    }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -53,13 +62,17 @@ fun LoginScreen(navController: NavHostController) {
                 .fillMaxHeight()
                 .padding(16.dp)
         ) {
-            Image(
-                painter = painterResource(R.drawable.agil_logistics_logo),
-                contentDescription = "Agil Logistics Logo",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-            )
+            AnimatedVisibility(
+                visible = visible, enter = fadeIn() + slideInVertically(initialOffsetY = { it / 2 })
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.agil_logistics_logo),
+                    contentDescription = "Agil Logistics Logo",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(120.dp)
+                )
+            }
             Spacer(modifier = Modifier.height(22.dp))
 
             Text(
@@ -68,7 +81,7 @@ fun LoginScreen(navController: NavHostController) {
                 fontWeight = FontWeight.ExtraBold,
                 color = Black,
             )
-            
+
             Spacer(modifier = Modifier.height(60.dp))
 
             var email by remember {
@@ -103,8 +116,7 @@ fun LoginScreen(navController: NavHostController) {
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 color = Blue,
-                modifier = Modifier
-                    .align(Alignment.End)
+                modifier = Modifier.align(Alignment.End)
             )
 
             Spacer(modifier = Modifier.height(22.dp))
@@ -122,7 +134,7 @@ fun LoginScreen(navController: NavHostController) {
                 defaultElevation = 4,
                 pressedElevation = 6,
 
-            )
+                )
         }
     }
 }

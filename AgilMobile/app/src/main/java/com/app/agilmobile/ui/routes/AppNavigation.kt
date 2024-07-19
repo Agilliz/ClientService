@@ -13,8 +13,10 @@ import com.app.agilmobile.ui.routes.RoutesNavigationGraph.SCRIPTS
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.SPLASHSCREEN
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.LOGIN
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.MAINSCREEN
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.SERVICESCREEN
 import com.app.agilmobile.ui.screens.LoginScreen
 import com.app.agilmobile.ui.screens.MainScreen
+import com.app.agilmobile.ui.screens.ServiceScreen
 import com.app.agilmobile.ui.screens.SplashScreen
 import com.app.agilmobile.ui.sections.deliveries.CompleteDeliverySection
 import com.app.agilmobile.ui.sections.deliveries.HomeSection
@@ -26,33 +28,35 @@ object RoutesNavigationGraph {
     const val SPLASHSCREEN = "Splash"
     const val LOGIN = "login"
     const val MAINSCREEN = "mainScreen"
+    const val SERVICESCREEN = "serviceScreen"
     const val HOME = "home"
     const val SCRIPTS = "scripts"
     const val PACKAGES = "packages"
     const val NEXT_DELIVERY = "next_delivery"
     const val COMPLETE_DELIVERY = "complete_delivery"
-    const val PENDING = "pendentes"
-    const val COMPLETED = "finalizados"
 }
 
 @Composable
-fun AppNavigation () {
+fun AppNavigation() {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = SPLASHSCREEN ) {
-        
+    NavHost(navController = navController, startDestination = SPLASHSCREEN) {
+
         composable(route = SPLASHSCREEN) {
             SplashScreen(navController = navController)
         }
-        composable(route = LOGIN){
+        composable(route = LOGIN) {
             LoginScreen(navController = navController)
         }
         composable(route = MAINSCREEN) {
             MainScreen(navController = navController)
         }
+        composable(route = SERVICESCREEN) {
+            ServiceScreen(navController = navController)
+        }
         composable(route = HOME) {
-            HomeSection()
+            HomeSection(navController = navController)
         }
         composable(route = SCRIPTS) {
             ScriptsSection()

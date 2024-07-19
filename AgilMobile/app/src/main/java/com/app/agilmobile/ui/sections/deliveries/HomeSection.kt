@@ -4,37 +4,26 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.ThumbUp
-import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.agilmobile.ui.theme.AgilMobileTheme
+import androidx.navigation.NavController
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.components.CardService
-import com.app.agilmobile.ui.components.InfoCard
-import com.app.agilmobile.ui.components.InfoItem
-import com.app.agilmobile.ui.components.SearchBar
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph
 import com.app.agilmobile.ui.theme.Orange
 
-enum class Section {
-    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY
-}
 
 @Composable
-fun HomeSection() {
+fun HomeSection(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -128,24 +117,27 @@ fun HomeSection() {
                         title = "Entregas",
                         imageResId = R.drawable.entregas,
                         icon = Icons.Default.ArrowForward,
-                        onCardClick = { Section.PACKAGES},
+                        onClick = {navController.navigate("serviceScreen")},
+                        onSectionSelected = { navController.navigate("serviceScreen") },
                     )
                     CardService(
                         title = "Coletas",
                         imageResId = R.drawable.coletas,
                         icon = Icons.Default.ArrowForward,
-                        onCardClick = { Section.SCRIPTS},
+                        onClick = {navController.navigate("serviceScreen")},
+                        onSectionSelected = { navController.navigate("serviceScreen") },
                     )
                 }
             }
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun HomeSectionPreview() {
-    AgilMobileTheme {
-        HomeSection()
-    }
-}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun HomeSectionPreview() {
+//    AgilMobileTheme {
+//        val navController = rememberNavController()
+//        HomeSection(navController)
+//    }
+//}
