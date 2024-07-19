@@ -2,23 +2,18 @@ package com.app.agilmobile.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -60,7 +55,7 @@ fun DrawerContent(onClose: () -> Unit) {
             .padding(vertical = 10.dp)
 
     ) {
-        Column (
+        Column(
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.End,
             modifier = Modifier
@@ -76,12 +71,11 @@ fun DrawerContent(onClose: () -> Unit) {
                     imageVector = Icons.Default.Close, contentDescription = "Close", tint = Orange
                 )
             }
-            Row (
-                verticalAlignment = Alignment.Top,
-                modifier = Modifier
+            Row(
+                verticalAlignment = Alignment.Top, modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
-            ){
+            ) {
                 Image(
                     painterResource(id = R.drawable.selfie),
                     contentDescription = "Selfie User",
@@ -92,12 +86,10 @@ fun DrawerContent(onClose: () -> Unit) {
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
                     Text(
-                        text = "Carlos Goes",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.SemiBold
-                        )
+                        text = "Carlos Goes", fontSize = 18.sp, fontWeight = FontWeight.SemiBold
+                    )
 
-                    Row (
+                    Row(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -105,13 +97,11 @@ fun DrawerContent(onClose: () -> Unit) {
                         Icon(
                             imageVector = Icons.Default.Star,
                             contentDescription = "Icon Star",
-                            modifier = Modifier
-                                .size(20.dp)
+                            modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
-                            text = "4.9",
-                            fontWeight = FontWeight.SemiBold
+                            text = "4.9", fontWeight = FontWeight.SemiBold
                         )
                     }
                 }
@@ -130,68 +120,105 @@ fun DrawerContent(onClose: () -> Unit) {
         )
 
         Column(
-            verticalArrangement = Arrangement.Top,
-            modifier = Modifier
+            verticalArrangement = Arrangement.Top, modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
         ) {
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.Home, contentDescription = "Icon Home")
-                Text(text = "Home", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+                Text(
+                    text = "Home",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
 
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
-                Icon(imageVector = Icons.Default.Notifications, contentDescription = "Icon Notification")
-                Text(text = "Notificações", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Notifications,
+                    contentDescription = "Icon Notification"
+                )
+                Text(
+                    text = "Notificações",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
 
 
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.Groups, contentDescription = "Icon Groups")
-                Text(text = "Parceiros", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+                Text(
+                    text = "Parceiros",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
 
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.DirectionsCar, contentDescription = "Icon Car")
-                Text(text = "Veículo", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+                Text(
+                    text = "Veículo",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
 
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.Settings, contentDescription = "Icon Settings")
-                Text(text = "Preferências", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+                Text(
+                    text = "Preferências",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
 
-            Row (
+            Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(horizontal = 10.dp)
-            ){
+            ) {
                 Icon(imageVector = Icons.Default.AccountCircle, contentDescription = "Icon Account")
-                Text(text = "Conta", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+                Text(
+                    text = "Conta",
+                    modifier = Modifier.padding(16.dp),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp
+                )
             }
         }
 
 
-        Row (
+        Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 10.dp)
-        ){
+        ) {
             Icon(imageVector = Icons.Default.Logout, contentDescription = "Icon Logout")
-            Text(text = "Sair", modifier = Modifier.padding(16.dp), fontWeight = FontWeight.SemiBold, fontSize = 22.sp)
+            Text(
+                text = "Sair",
+                modifier = Modifier.padding(16.dp),
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 22.sp
+            )
         }
 
 
@@ -200,7 +227,7 @@ fun DrawerContent(onClose: () -> Unit) {
 
 @Preview
 @Composable
-fun DrawerContentPreview(){
+fun DrawerContentPreview() {
     AgilMobileTheme {
         DrawerContent(onClose = {})
     }

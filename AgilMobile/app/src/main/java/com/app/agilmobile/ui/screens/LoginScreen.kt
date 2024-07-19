@@ -5,7 +5,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
@@ -34,8 +33,6 @@ import com.app.agilmobile.R
 import com.app.agilmobile.ui.components.ButtonStandard
 import com.app.agilmobile.ui.components.TextFieldStandard
 import com.app.agilmobile.ui.theme.AgilMobileTheme
-import com.app.agilmobile.ui.theme.Black
-import com.app.agilmobile.ui.theme.Blue
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange
 
@@ -49,16 +46,12 @@ fun LoginScreen(navController: NavHostController) {
 
     AnimatedVisibility(
         visible = visible,
-        enter = fadeIn(animationSpec = tween(durationMillis = 1000)) +
-                slideInHorizontally(
-                    initialOffsetX = { it },
-                    animationSpec = tween(durationMillis = 1000)
-                ),
-        exit = fadeOut(animationSpec = tween(durationMillis = 1000)) +
-                slideOutHorizontally(
-                    targetOffsetX = { it },
-                    animationSpec = tween(durationMillis = 1000)
-                )
+        enter = fadeIn(animationSpec = tween(durationMillis = 1000)) + slideInHorizontally(
+            initialOffsetX = { it }, animationSpec = tween(durationMillis = 1000)
+        ),
+        exit = fadeOut(animationSpec = tween(durationMillis = 1000)) + slideOutHorizontally(
+            targetOffsetX = { it }, animationSpec = tween(durationMillis = 1000)
+        )
     ) {
         Box(
             modifier = Modifier
@@ -141,12 +134,13 @@ fun LoginScreen(navController: NavHostController) {
                     text = "Não tem acesso ? Cadastre-se",
                     fontWeight = FontWeight.Normal,
                     color = Color.DarkGray,
-                    )
+                )
             }
         }
     }
 
 }
+
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {

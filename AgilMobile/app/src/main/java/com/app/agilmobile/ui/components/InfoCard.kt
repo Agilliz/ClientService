@@ -2,10 +2,8 @@ package com.app.agilmobile.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material3.*
@@ -21,7 +19,6 @@ import androidx.compose.ui.unit.sp
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Black
 import com.app.agilmobile.ui.theme.Orange
-import com.app.agilmobile.ui.theme.Orange30
 
 data class InfoItem(val icon: ImageVector, val info: String)
 

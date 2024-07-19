@@ -14,7 +14,6 @@ import com.app.agilmobile.ui.components.DrawerContent
 import com.app.agilmobile.ui.components.FunUnderConstruction
 import com.app.agilmobile.ui.components.MainBottomBar
 import com.app.agilmobile.ui.components.TopBar
-import com.app.agilmobile.ui.routes.RoutesNavigationGraph
 import com.app.agilmobile.ui.sections.EmptySection
 import com.app.agilmobile.ui.sections.deliveries.*
 import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
@@ -60,7 +59,8 @@ fun MainScreen(navController: NavHostController) {
                 }
             }
             Spacer(modifier = Modifier.height(4.dp))
-            MainBottomBar(navController,
+            MainBottomBar(
+                navController,
                 onSectionSelected = { section -> currentSection = section })
         }
     }

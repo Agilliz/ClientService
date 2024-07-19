@@ -29,9 +29,11 @@ fun TopBar(onMenuClick: () -> Unit) {
             .background(Color.Transparent)
             .padding(8.dp)
     ) {
-        IconButton(onClick = onMenuClick, modifier = Modifier.background(Blue, RoundedCornerShape(14.dp))) {
+        IconButton(
+            onClick = onMenuClick, modifier = Modifier.background(Blue, RoundedCornerShape(14.dp))
+        ) {
             Icon(
-                imageVector = Icons.Default.Menu, contentDescription = "Menu",  tint = Color.White
+                imageVector = Icons.Default.Menu, contentDescription = "Menu", tint = Color.White
             )
         }
 

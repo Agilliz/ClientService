@@ -52,12 +52,10 @@ fun ServiceBottomBar(
                 .fillMaxHeight()
                 .background(Color.Transparent)
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { navController.navigate("main_screen") }
-            ) {
+                    .clickable { navController.navigate("main_screen") }) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
@@ -68,12 +66,10 @@ fun ServiceBottomBar(
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.PACKAGES) }
-            ) {
+                    .clickable { onSectionSelected(SectionService.PACKAGES) }) {
                 Icon(
                     imageVector = Icons.Default.AllInbox,
                     contentDescription = "Entregas",
@@ -86,12 +82,10 @@ fun ServiceBottomBar(
 
             Spacer(modifier = Modifier.width(60.dp))
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
-            ) {
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.TextSnippet,
                     contentDescription = "null",
@@ -102,12 +96,10 @@ fun ServiceBottomBar(
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
-            ) {
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.Info,
                     contentDescription = "null",
@@ -119,15 +111,13 @@ fun ServiceBottomBar(
             }
         }
 
-        Box(
-            contentAlignment = Alignment.Center,
+        Box(contentAlignment = Alignment.Center,
             modifier = Modifier
                 .size(66.dp)
                 .offset(y = (-20).dp)
                 .align(Alignment.TopCenter)
                 .background(Orange, shape = CircleShape)
-                .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
-        ) {
+                .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = "Localização",

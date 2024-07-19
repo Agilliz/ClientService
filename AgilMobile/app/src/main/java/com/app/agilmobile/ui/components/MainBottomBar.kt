@@ -5,11 +5,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
-import androidx.compose.material.icons.filled.AllInbox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Sync
-import androidx.compose.material.icons.filled.TextSnippet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,12 +47,10 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 .fillMaxHeight()
                 .background(Color.Transparent)
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(Section.HOME) }
-            ) {
+                    .clickable { onSectionSelected(Section.HOME) }) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
@@ -65,12 +61,10 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }
-            ) {
+                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.Info,
                     contentDescription = "Service",
@@ -81,12 +75,10 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }
-            ) {
+                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.AccountBalanceWallet,
                     contentDescription = "Carteira",
@@ -97,12 +89,10 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(Section.EMPTY_SECTION) }
-            ) {
+                    .clickable { onSectionSelected(Section.EMPTY_SECTION) }) {
                 Icon(
                     imageVector = Icons.Default.Sync,
                     contentDescription = "Icon Execution",
