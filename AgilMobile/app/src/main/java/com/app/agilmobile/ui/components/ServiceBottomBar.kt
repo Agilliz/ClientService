@@ -36,7 +36,6 @@ fun ServiceBottomBar(
             .height(65.dp)
             .fillMaxWidth()
     ) {
-        // This Box is for the border effect
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -53,8 +52,12 @@ fun ServiceBottomBar(
                 .fillMaxHeight()
                 .background(Color.Transparent)
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { navController.navigate("main_screen") }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { navController.navigate("main_screen") }
+            ) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
@@ -65,8 +68,12 @@ fun ServiceBottomBar(
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(SectionService.PACKAGES) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.PACKAGES) }
+            ) {
                 Icon(
                     imageVector = Icons.Default.AllInbox,
                     contentDescription = "Entregas",
@@ -79,38 +86,48 @@ fun ServiceBottomBar(
 
             Spacer(modifier = Modifier.width(60.dp))
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(SectionService.SCRIPTS) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
+            ) {
                 Icon(
                     imageVector = Icons.Default.TextSnippet,
-                    contentDescription = "Relatórios",
+                    contentDescription = "null",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Relatórios", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(SectionService.COMPLETE_DELIVERY) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
+            ) {
                 Icon(
                     imageVector = Icons.Default.Info,
-                    contentDescription = "Vazio",
+                    contentDescription = "null",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Vazio", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
         }
 
-        Box(contentAlignment = Alignment.Center,
+        Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier
                 .size(66.dp)
                 .offset(y = (-20).dp)
                 .align(Alignment.TopCenter)
                 .background(Orange, shape = CircleShape)
-                .clickable { onSectionSelected(SectionService.NEXT_DELIVERY) }) {
+                .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }
+        ) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = "Localização",

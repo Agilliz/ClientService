@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.ui.components.DrawerContent
+import com.app.agilmobile.ui.components.FunUnderConstruction
 import com.app.agilmobile.ui.components.MainBottomBar
 import com.app.agilmobile.ui.components.ServiceBottomBar
 import com.app.agilmobile.ui.components.TopBar
@@ -21,7 +22,7 @@ import com.app.agilmobile.ui.theme.AgilMobileTheme
 import kotlinx.coroutines.launch
 
 enum class SectionService {
-    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY, MAINSCREEN
+    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY, MAINSCREEN, FUNCTION_CONSTRUCTION
 }
 
 @Composable
@@ -56,6 +57,7 @@ fun ServiceScreen(navController: NavHostController) {
                     SectionService.PACKAGES -> PackagesSection()
                     SectionService.NEXT_DELIVERY -> NextDeliverySection()
                     SectionService.COMPLETE_DELIVERY -> CompleteDeliverySection()
+                    SectionService.FUNCTION_CONSTRUCTION -> FunUnderConstruction(navController)
                 }
             }
             Spacer(modifier = Modifier.height(4.dp))

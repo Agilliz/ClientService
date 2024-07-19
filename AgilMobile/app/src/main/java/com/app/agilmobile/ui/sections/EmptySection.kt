@@ -38,7 +38,7 @@ fun EmptySection(navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White),
-        contentAlignment = Alignment.CenterEnd
+        contentAlignment = Alignment.Center
     ) {
         Column(
             verticalArrangement = Arrangement.Top,
@@ -50,7 +50,7 @@ fun EmptySection(navController: NavHostController) {
                 fontWeight = FontWeight.SemiBold,
                 color = Color.DarkGray,
                 modifier = Modifier
-                    .width(350.dp)
+                    .width(320.dp)
             )
         }
 

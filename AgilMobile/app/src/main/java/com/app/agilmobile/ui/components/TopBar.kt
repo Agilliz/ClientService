@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.app.agilmobile.ui.theme.Blue
 import com.app.agilmobile.ui.theme.Orange
 
 @Composable
@@ -28,9 +29,9 @@ fun TopBar(onMenuClick: () -> Unit) {
             .background(Color.Transparent)
             .padding(8.dp)
     ) {
-        IconButton(onClick = onMenuClick) {
+        IconButton(onClick = onMenuClick, modifier = Modifier.background(Blue, RoundedCornerShape(14.dp))) {
             Icon(
-                imageVector = Icons.Default.Menu, contentDescription = "Menu"
+                imageVector = Icons.Default.Menu, contentDescription = "Menu",  tint = Color.White
             )
         }
 

@@ -35,7 +35,7 @@ fun FunUnderConstruction(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Blue),
+            .background(color = Color.White),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -56,7 +56,7 @@ fun FunUnderConstruction(navController: NavHostController) {
                 text = "Estamos construindo essa funcionalidade para melhor atendê-lo, Obrigado!",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = Color.White,
+                color = Color.DarkGray,
                 modifier = Modifier
                     .width(350.dp)
             )

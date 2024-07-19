@@ -3,12 +3,12 @@ package com.app.agilmobile.ui.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.AllInbox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Sync
 import androidx.compose.material.icons.filled.TextSnippet
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -22,11 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.app.agilmobile.ui.routes.RoutesNavigationGraph
 import com.app.agilmobile.ui.screens.Section
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Black30
-import com.app.agilmobile.ui.theme.Orange
 
 @Composable
 fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> Unit) {
@@ -51,8 +49,12 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 .fillMaxHeight()
                 .background(Color.Transparent)
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(Section.HOME) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(Section.HOME) }
+            ) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
@@ -63,22 +65,30 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { navController.navigate("service_screen") }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }
+            ) {
                 Icon(
-                    imageVector = Icons.Default.AllInbox,
+                    imageVector = Icons.Default.Info,
                     contentDescription = "Service",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Entregas", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }
+            ) {
                 Icon(
-                    imageVector = Icons.Default.TextSnippet,
+                    imageVector = Icons.Default.AccountBalanceWallet,
                     contentDescription = "Carteira",
                     modifier = Modifier.height(20.dp)
                 )
@@ -87,10 +97,14 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable { onSectionSelected(Section.EMPTY_SECTION) }) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onSectionSelected(Section.EMPTY_SECTION) }
+            ) {
                 Icon(
-                    imageVector = Icons.Default.Info,
+                    imageVector = Icons.Default.Sync,
                     contentDescription = "Icon Execution",
                     modifier = Modifier.height(20.dp)
                 )
@@ -99,7 +113,6 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
         }
-
     }
 }
 
