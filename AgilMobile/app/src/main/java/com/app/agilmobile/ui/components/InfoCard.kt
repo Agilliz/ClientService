@@ -2,10 +2,8 @@ package com.app.agilmobile.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material3.*
@@ -21,7 +19,6 @@ import androidx.compose.ui.unit.sp
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Black
 import com.app.agilmobile.ui.theme.Orange
-import com.app.agilmobile.ui.theme.Orange30
 
 data class InfoItem(val icon: ImageVector, val info: String)
 
@@ -64,18 +61,15 @@ fun InfoCard(
                 onClick = {
                     isPressed = !isPressed
                     onCardClick()
-                },
-                modifier = Modifier
+                }, modifier = Modifier
                     .size(24.dp)
                     .align(Alignment.CenterVertically)
             ) {
                 Checkbox(
-                    checked = isPressed,
-                    onCheckedChange = {
+                    checked = isPressed, onCheckedChange = {
                         isPressed = it
                         onCardClick()
-                    },
-                    colors = CheckboxDefaults.colors(
+                    }, colors = CheckboxDefaults.colors(
                         checkedColor = textColor,
                         uncheckedColor = textColor,
                         checkmarkColor = Orange
@@ -92,10 +86,7 @@ fun InfoRow(item: InfoItem, textColor: Color) {
         Icon(imageVector = item.icon, contentDescription = null, tint = textColor)
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = item.info,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = textColor
+            text = item.info, fontSize = 16.sp, fontWeight = FontWeight.SemiBold, color = textColor
         )
     }
 }

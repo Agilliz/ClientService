@@ -12,21 +12,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.ui.components.DrawerContent
 import com.app.agilmobile.ui.components.FunUnderConstruction
-import com.app.agilmobile.ui.components.MainBottomBar
+import com.app.agilmobile.ui.components.ServiceBottomBar
 import com.app.agilmobile.ui.components.TopBar
-import com.app.agilmobile.ui.sections.EmptySection
 import com.app.agilmobile.ui.sections.deliveries.*
 import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import kotlinx.coroutines.launch
 
-enum class Section {
-    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY, FUNCTION_CONSTRUCTION, EMPTY_SECTION
+enum class SectionService {
+    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY, MAINSCREEN, FUNCTION_CONSTRUCTION
 }
 
 @Composable
-fun MainScreen(navController: NavHostController) {
-    var currentSection by remember { mutableStateOf(Section.HOME) }
+fun ServiceScreen(navController: NavHostController) {
+    var currentSection by remember { mutableStateOf(SectionService.PACKAGES) }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
@@ -49,26 +48,25 @@ fun MainScreen(navController: NavHostController) {
                     .weight(1f)
             ) {
                 when (currentSection) {
-                    Section.HOME -> HomeSection(navController)
-                    Section.SCRIPTS -> ScriptsSection()
-                    Section.PACKAGES -> PackagesSection()
-                    Section.NEXT_DELIVERY -> NextDeliverySection()
-                    Section.COMPLETE_DELIVERY -> CompleteDeliverySection()
-                    Section.FUNCTION_CONSTRUCTION -> FunUnderConstruction(navController)
-                    Section.EMPTY_SECTION -> EmptySection(navController)
+                    SectionService.MAINSCREEN -> MainScreen(navController)
+                    SectionService.HOME -> HomeSection(navController)
+                    SectionService.SCRIPTS -> ScriptsSection()
+                    SectionService.PACKAGES -> PackagesSection()
+                    SectionService.NEXT_DELIVERY -> NextDeliverySection()
+                    SectionService.COMPLETE_DELIVERY -> CompleteDeliverySection()
+                    SectionService.FUNCTION_CONSTRUCTION -> FunUnderConstruction(navController)
                 }
             }
             Spacer(modifier = Modifier.height(4.dp))
-            MainBottomBar(
-                navController,
-                onSectionSelected = { section -> currentSection = section })
+            ServiceBottomBar(navController,
+                onSectionSelected = { SectionService -> currentSection = SectionService })
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
+fun ServiceScreenPreview() {
     AgilMobileTheme {
         val navController = rememberNavController()
         MainScreen(navController)

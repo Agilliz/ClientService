@@ -4,15 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,7 +30,8 @@ fun CardService(
     title: String,
     imageResId: Int,
     icon: ImageVector,
-    onCardClick: () -> Unit,
+    onClick: () -> Unit,
+    onSectionSelected: () -> Unit
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
@@ -45,12 +42,9 @@ fun CardService(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .background(Color.Transparent)
-            .padding(8.dp),
-        onClick = {
-            isPressed = true
-            onCardClick()
-            isPressed = false
-        },
+            .padding(8.dp)
+            .clickable { onSectionSelected },
+        onClick = onClick,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -60,9 +54,7 @@ fun CardService(
                 .height(IntrinsicSize.Min)
         ) {
             Text(
-                text = title,
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 20.sp
+                text = title, fontWeight = FontWeight.SemiBold, fontSize = 20.sp
             )
 
             Row(

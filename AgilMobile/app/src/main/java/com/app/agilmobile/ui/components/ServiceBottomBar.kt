@@ -1,13 +1,9 @@
 package com.app.agilmobile.ui.components
 
-import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AllInbox
 import androidx.compose.material.icons.filled.Home
@@ -24,17 +20,30 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.agilmobile.ui.screens.Section
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.app.agilmobile.ui.screens.SectionService
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.app.agilmobile.ui.theme.Black30
 import com.app.agilmobile.ui.theme.Orange
-import com.app.agilmobile.ui.theme.Orange30
 
 @Composable
-fun BottomBar(onSectionSelected: (Section) -> Unit) {
+fun ServiceBottomBar(
+    navController: NavController, onSectionSelected: (SectionService) -> Unit
+) {
     Box(
         modifier = Modifier
             .height(65.dp)
+            .fillMaxWidth()
     ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(2.dp)
+                .background(Black30)
+                .align(Alignment.TopCenter)
+        )
+
         Row(
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically,
@@ -42,97 +51,78 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
                 .fillMaxWidth()
                 .fillMaxHeight()
                 .background(Color.Transparent)
-                .border(2.dp, Orange30, RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clickable (
-
-                    ){
-                        onSectionSelected(Section.HOME) }
-            ) {
+                    .weight(1f)
+                    .clickable { navController.navigate("main_screen") }) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Home",
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    text = "Home", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clickable { onSectionSelected(Section.PACKAGES) }
-            ) {
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.PACKAGES) }) {
                 Icon(
                     imageVector = Icons.Default.AllInbox,
                     contentDescription = "Entregas",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Entregas",
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    text = "Entregas", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
             Spacer(modifier = Modifier.width(60.dp))
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clickable { onSectionSelected(Section.NEXT_DELIVERY) }
-            ) {
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.TextSnippet,
-                    contentDescription = "Relatórios",
+                    contentDescription = "null",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Relatórios",
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
-                    .clickable { onSectionSelected(Section.COMPLETE_DELIVERY) }
-            ) {
+                    .weight(1f)
+                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
                 Icon(
                     imageVector = Icons.Default.Info,
-                    contentDescription = "Vazio",
+                    contentDescription = "null",
                     modifier = Modifier.height(20.dp)
                 )
                 Text(
-                    text = "Vazio",
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
                 )
             }
         }
 
-        Box(
-            contentAlignment = Alignment.Center,
+        Box(contentAlignment = Alignment.Center,
             modifier = Modifier
                 .size(66.dp)
                 .offset(y = (-20).dp)
                 .align(Alignment.TopCenter)
                 .background(Orange, shape = CircleShape)
-                .clickable { onSectionSelected(Section.NEXT_DELIVERY) }
-        ) {
+                .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = "Localização",
                 tint = Color.White,
-                modifier = Modifier
-                    .size(50.dp)
+                modifier = Modifier.size(50.dp)
             )
         }
     }
@@ -140,8 +130,9 @@ fun BottomBar(onSectionSelected: (Section) -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun BottomBarPreview() {
+fun ServiceBottomBarPreview() {
     AgilMobileTheme {
-        BottomBar(onSectionSelected = {})
+        val navController = rememberNavController()
+        ServiceBottomBar(navController, onSectionSelected = {})
     }
 }
