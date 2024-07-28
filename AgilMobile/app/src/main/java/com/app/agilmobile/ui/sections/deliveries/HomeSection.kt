@@ -13,12 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.components.CardService
-import com.app.agilmobile.ui.routes.RoutesNavigationGraph
+import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Orange
 
 
@@ -132,12 +134,12 @@ fun HomeSection(navController: NavController) {
         }
     }
 }
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun HomeSectionPreview() {
-//    AgilMobileTheme {
-//        val navController = rememberNavController()
-//        HomeSection(navController)
-//    }
-//}
+
+@Preview(showBackground = true)
+@Composable
+fun HomeSectionPreview() {
+    AgilMobileTheme {
+        val navController = rememberNavController()
+        HomeSection(navController)
+    }
+}

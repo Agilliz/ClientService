@@ -8,6 +8,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.ui.components.DrawerContent
@@ -17,21 +18,27 @@ import com.app.agilmobile.ui.components.TopBar
 import com.app.agilmobile.ui.sections.deliveries.*
 import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.app.agilmobile.viewmodels.service.SectionService
+import com.app.agilmobile.viewmodels.service.ServiceScreenViewModel
 import kotlinx.coroutines.launch
 
-enum class SectionService {
-    HOME, SCRIPTS, PACKAGES, NEXT_DELIVERY, COMPLETE_DELIVERY, MAINSCREEN, FUNCTION_CONSTRUCTION
-}
-
 @Composable
-fun ServiceScreen(navController: NavHostController) {
-    var currentSection by remember { mutableStateOf(SectionService.PACKAGES) }
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+fun ServiceScreen(navController: NavHostController, viewModel: ServiceScreenViewModel = viewModel()) {
+    val currentSection by viewModel.currentSection
+    val drawerState = rememberDrawerState(initialValue = viewModel.drawerState.value)
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(viewModel.drawerState.value) {
+        if (viewModel.drawerState.value == DrawerValue.Open) {
+            drawerState.open()
+        } else {
+            drawerState.close()
+        }
+    }
 
     ModalNavigationDrawer(
         drawerContent = {
-            DrawerContent(onClose = { coroutineScope.launch { drawerState.close() } })
+            DrawerContent(onClose = { viewModel.closeDrawer() })
         }, drawerState = drawerState, modifier = Modifier.fillMaxSize()
     ) {
         Column(
@@ -41,7 +48,15 @@ fun ServiceScreen(navController: NavHostController) {
                 .windowInsetsPadding(WindowInsets.statusBars)
                 .padding(start = 4.dp, end = 4.dp)
         ) {
-            TopBar(onMenuClick = { coroutineScope.launch { drawerState.open() } })
+            TopBar(onMenuClick = {
+                coroutineScope.launch {
+                    if (drawerState.isClosed) {
+                        viewModel.openDrawer()
+                    } else {
+                        viewModel.closeDrawer()
+                    }
+                }
+            })
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -50,16 +65,14 @@ fun ServiceScreen(navController: NavHostController) {
                 when (currentSection) {
                     SectionService.MAINSCREEN -> MainScreen(navController)
                     SectionService.HOME -> HomeSection(navController)
-                    SectionService.SCRIPTS -> ScriptsSection()
                     SectionService.PACKAGES -> PackagesSection()
-                    SectionService.NEXT_DELIVERY -> NextDeliverySection()
-                    SectionService.COMPLETE_DELIVERY -> CompleteDeliverySection()
                     SectionService.FUNCTION_CONSTRUCTION -> FunUnderConstruction(navController)
                 }
             }
             Spacer(modifier = Modifier.height(4.dp))
-            ServiceBottomBar(navController,
-                onSectionSelected = { SectionService -> currentSection = SectionService })
+            ServiceBottomBar(
+                navController, onSectionSelected = viewModel::setSection
+            )
         }
     }
 }
@@ -69,6 +82,6 @@ fun ServiceScreen(navController: NavHostController) {
 fun ServiceScreenPreview() {
     AgilMobileTheme {
         val navController = rememberNavController()
-        MainScreen(navController)
+        ServiceScreen(navController)
     }
 }

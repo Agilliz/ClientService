@@ -53,26 +53,27 @@ fun DrawerContent(onClose: () -> Unit) {
             .width(280.dp)
             .background(Color.White)
             .padding(vertical = 10.dp)
-
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.End,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(intrinsicSize = IntrinsicSize.Min)
+                .height(IntrinsicSize.Min)
                 .padding(start = 10.dp)
-
         ) {
             IconButton(
                 onClick = onClose,
             ) {
                 Icon(
-                    imageVector = Icons.Default.Close, contentDescription = "Close", tint = Orange
+                    imageVector = Icons.Default.Close,
+                    contentDescription = "Close",
+                    tint = Orange
                 )
             }
             Row(
-                verticalAlignment = Alignment.Top, modifier = Modifier
+                verticalAlignment = Alignment.Top,
+                modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
             ) {
@@ -86,14 +87,15 @@ fun DrawerContent(onClose: () -> Unit) {
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
                     Text(
-                        text = "Carlos Goes", fontSize = 18.sp, fontWeight = FontWeight.SemiBold
+                        text = "Carlos Goes",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.SemiBold
                     )
 
                     Row(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-
                         Icon(
                             imageVector = Icons.Default.Star,
                             contentDescription = "Icon Star",
@@ -101,12 +103,11 @@ fun DrawerContent(onClose: () -> Unit) {
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
-                            text = "4.9", fontWeight = FontWeight.SemiBold
+                            text = "4.9",
+                            fontWeight = FontWeight.SemiBold
                         )
                     }
                 }
-
-
             }
         }
 
@@ -120,7 +121,8 @@ fun DrawerContent(onClose: () -> Unit) {
         )
 
         Column(
-            verticalArrangement = Arrangement.Top, modifier = Modifier
+            verticalArrangement = Arrangement.Top,
+            modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
         ) {
@@ -152,7 +154,6 @@ fun DrawerContent(onClose: () -> Unit) {
                     fontSize = 22.sp
                 )
             }
-
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -207,7 +208,6 @@ fun DrawerContent(onClose: () -> Unit) {
             }
         }
 
-
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 10.dp)
@@ -220,8 +220,6 @@ fun DrawerContent(onClose: () -> Unit) {
                 fontSize = 22.sp
             )
         }
-
-
     }
 }
 

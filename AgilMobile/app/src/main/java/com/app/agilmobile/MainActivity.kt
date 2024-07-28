@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.app.agilmobile.ui.routes.AppNavigation
 import com.app.agilmobile.ui.theme.AgilMobileTheme
+import com.example.composeapp.ui.screens.NavigationScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -45,6 +46,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AgilMobileTheme {
                 AppNavigation()
+
             }
         }
     }

@@ -10,11 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,18 +25,18 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
+import com.app.agilmobile.ui.components.ArrowBackTopBar
 import com.app.agilmobile.ui.components.ButtonStandard
 import com.app.agilmobile.ui.components.TextFieldStandard
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange
-import com.app.agilmobile.viewmodels.login.LoginViewModel
+import com.app.agilmobile.viewmodels.recoverypass.RecoveryPassViewModel
 
 @Composable
-fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = viewModel()) {
-    val visible by viewModel.visible
+fun RecoveryPassScreen(navController: NavHostController, viewModel: RecoveryPassViewModel = viewModel()) {
     val email by viewModel.email
-    val password by viewModel.password
+    val visible by viewModel.visible
 
     AnimatedVisibility(
         visible = visible,
@@ -56,11 +54,13 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = vi
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
+                ArrowBackTopBar(navController)
+
                 Image(
                     painter = painterResource(R.drawable.agil_logistics_logo),
                     contentDescription = "Agil Logistics Logo",
@@ -69,58 +69,44 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = vi
                         .height(120.dp)
                 )
 
-                Spacer(modifier = Modifier.height(22.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "Acesse sua conta",
+                    text = "Recuperar Senha",
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.DarkGray,
                 )
 
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = "Por favor, insira seu endereço de e-mail. Você receberá um link para criar uma nova senha!",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.Black,
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
 
                 TextFieldStandard(
                     text = email,
                     onTextChange = { viewModel.onEmailChange(it) },
-                    label = "E-mail, Telefone ou Usuário",
+                    label = "E-mail",
                     leadingIcon = Icons.Default.AccountCircle
                 )
 
-                Spacer(modifier = Modifier.height(22.dp))
-
-                TextFieldStandard(
-                    text = password,
-                    onTextChange = { viewModel.onPasswordChange(it) },
-                    label = "Senha",
-                    leadingIcon = Icons.Default.Info,
-                    isPassword = true
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = "Esqueci a senha!",
-                    fontWeight = FontWeight.Normal,
-                    color = Color.DarkGray,
-                    modifier = Modifier.align(Alignment.End).clickable { navController.navigate("recovery_password") }
-                )
-
-                Spacer(modifier = Modifier.height(22.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 ButtonStandard(
-                    text = "Entrar",
-                    onClick = { navController.navigate("main_screen") },
+                    text = "Enviar",
+                    onClick = { navController.navigate("login") },
                     buttonColor = Orange,
                     textColor = Color.White,
                     cornerRadius = 12,
                 )
 
-                Text(
-                    text = "Não tem acesso ? Cadastre-se",
-                    fontWeight = FontWeight.Normal,
-                    color = Color.DarkGray,
-                )
+                Spacer(modifier = Modifier.height(40.dp))
             }
         }
     }
@@ -128,9 +114,9 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = vi
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
+fun RecoveryPassScreenPreview() {
     AgilMobileTheme {
         val navController = rememberNavController()
-        LoginScreen(navController)
+        RecoveryPassScreen(navController)
     }
 }

@@ -15,9 +15,15 @@ import com.app.agilmobile.ui.routes.RoutesNavigationGraph.MAINSCREEN
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.SERVICESCREEN
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.FUNCTION_CONSTRUCTION
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.EMPTY_SECTION
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.RECOVERY_PASSWORD
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.WALLET_SECTION
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.NAVIGATION_SCREEN
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.CHANGE_ROUTE_SCREEN
 import com.app.agilmobile.ui.components.FunUnderConstruction
+import com.app.agilmobile.ui.screens.ChangeRouteScreen
 import com.app.agilmobile.ui.screens.LoginScreen
 import com.app.agilmobile.ui.screens.MainScreen
+import com.app.agilmobile.ui.screens.RecoveryPassScreen
 import com.app.agilmobile.ui.screens.ServiceScreen
 import com.app.agilmobile.ui.screens.SplashScreen
 import com.app.agilmobile.ui.sections.EmptySection
@@ -26,10 +32,13 @@ import com.app.agilmobile.ui.sections.deliveries.HomeSection
 import com.app.agilmobile.ui.sections.deliveries.NextDeliverySection
 import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.sections.deliveries.ScriptsSection
+import com.app.agilmobile.ui.sections.mainsScreen.wallet.Wallet
+import com.example.composeapp.ui.screens.NavigationScreen
 
 object RoutesNavigationGraph {
     const val SPLASHSCREEN = "Splash"
     const val LOGIN = "login"
+    const val RECOVERY_PASSWORD = "recovery_password"
     const val MAINSCREEN = "main_screen"
     const val SERVICESCREEN = "service_screen"
     const val HOME = "home"
@@ -39,6 +48,10 @@ object RoutesNavigationGraph {
     const val COMPLETE_DELIVERY = "complete_delivery"
     const val FUNCTION_CONSTRUCTION = "function_construction"
     const val EMPTY_SECTION = "empty_section"
+    const val WALLET_SECTION = "wallet_section"
+    const val NAVIGATION_SCREEN = "navigation_screen"
+    const val CHANGE_ROUTE_SCREEN = "change_route_screen"
+
 }
 
 @Composable
@@ -54,11 +67,20 @@ fun AppNavigation() {
         composable(route = LOGIN) {
             LoginScreen(navController = navController)
         }
+        composable(route = RECOVERY_PASSWORD) {
+            RecoveryPassScreen(navController = navController)
+        }
         composable(route = MAINSCREEN) {
             MainScreen(navController = navController)
         }
         composable(route = SERVICESCREEN) {
             ServiceScreen(navController = navController)
+        }
+        composable(route = NAVIGATION_SCREEN) {
+            NavigationScreen(navController = navController)
+        }
+        composable(route = CHANGE_ROUTE_SCREEN) {
+            ChangeRouteScreen(navController = navController)
         }
         composable(route = HOME) {
             HomeSection(navController = navController)
@@ -81,6 +103,9 @@ fun AppNavigation() {
         composable(route = EMPTY_SECTION) {
             EmptySection(navController = navController)
         }
+        composable(route = WALLET_SECTION) {
+            Wallet(navController = navController)
+        }
 
 //        composable(route = PENDING) {
 //            CompleteDeliverySection()
@@ -88,7 +113,6 @@ fun AppNavigation() {
 //        composable(route = COMPLETE_DELIVERY) {
 //            CompleteDeliverySection()
 //        }
-//
 
     }
 }

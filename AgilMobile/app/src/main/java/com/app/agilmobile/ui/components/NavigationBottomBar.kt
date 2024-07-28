@@ -10,25 +10,24 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.TextSnippet
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Black30
 import com.app.agilmobile.ui.theme.Orange
 import com.app.agilmobile.viewmodels.service.SectionService
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionService) -> Unit) {
+fun NavigationBottomBar(
+    navController: NavController, onSectionSelected: (SectionService) -> Unit
+) {
     Box(
         modifier = Modifier
             .height(65.dp)
@@ -53,7 +52,9 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { navController.navigate("main_screen") }) {
+                    .clickable {
+//                        navController.navigate("main_screen")
+                    }) {
                 Icon(
                     imageVector = Icons.Default.Home,
                     contentDescription = "Home",
@@ -67,7 +68,9 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.PACKAGES) }) {
+                    .clickable {
+//                        onSectionSelected(SectionService.PACKAGES)
+                    }) {
                 Icon(
                     imageVector = Icons.Default.AllInbox,
                     contentDescription = "Entregas",
@@ -83,7 +86,9 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
+                    .clickable {
+//                        onSectionSelected(SectionService.FUNCTION_CONSTRUCTION)
+                    }) {
                 Icon(
                     imageVector = Icons.Default.TextSnippet,
                     contentDescription = "null",
@@ -97,7 +102,9 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(SectionService.FUNCTION_CONSTRUCTION) }) {
+                    .clickable {
+//                        onSectionSelected(SectionService.FUNCTION_CONSTRUCTION)
+                    }) {
                 Icon(
                     imageVector = Icons.Default.Info,
                     contentDescription = "null",
@@ -115,7 +122,9 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
                 .offset(y = (-20).dp)
                 .align(Alignment.TopCenter)
                 .background(Orange, shape = CircleShape)
-                .clickable { navController.navigate("navigation_screen") }) {
+                .clickable {
+//                    onSectionSelected(SectionService.FUNCTION_CONSTRUCTION)
+                }) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = "Localização",
@@ -126,11 +135,11 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun ServiceBottomBarPreview() {
-    AgilMobileTheme {
-        val navController = rememberNavController()
-        ServiceBottomBar(navController, onSectionSelected = {})
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun MainScreenPreview() {
+//    AgilMobileTheme {
+//        val navController = rememberNavController()
+//        NavigationBottomBar(navController)
+//    }
+//}

@@ -20,9 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.app.agilmobile.ui.screens.Section
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Black30
+import com.app.agilmobile.ui.viewmodels.Section
 
 @Composable
 fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> Unit) {
@@ -61,24 +61,24 @@ fun MainBottomBar(navController: NavController, onSectionSelected: (Section) -> 
                 )
             }
 
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .weight(1f)
-                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
-                Icon(
-                    imageVector = Icons.Default.Info,
-                    contentDescription = "Service",
-                    modifier = Modifier.height(20.dp)
-                )
-                Text(
-                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
-                )
-            }
+//            Column(horizontalAlignment = Alignment.CenterHorizontally,
+//                modifier = Modifier
+//                    .weight(1f)
+//                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
+//                Icon(
+//                    imageVector = Icons.Default.Info,
+//                    contentDescription = "Service",
+//                    modifier = Modifier.height(20.dp)
+//                )
+//                Text(
+//                    text = "null", fontWeight = FontWeight.SemiBold, fontSize = 12.sp
+//                )
+//            }
 
             Column(horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .clickable { onSectionSelected(Section.FUNCTION_CONSTRUCTION) }) {
+                    .clickable { onSectionSelected(Section.WALLET_SECTION) }) {
                 Icon(
                     imageVector = Icons.Default.AccountBalanceWallet,
                     contentDescription = "Carteira",
