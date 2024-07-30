@@ -42,31 +42,7 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.statusBars)
         ) {
-            TextField(
-                value = "",
-                onValueChange = { /* Lógica para atualizar o texto */ },
-                label = { Text(text = "Informe novo endereço") },
-                modifier = Modifier
-                    .clip(RoundedCornerShape(16.dp))
-                    .fillMaxWidth()
-                    .padding(8.dp)
-                    .background(Color.White, RoundedCornerShape(16.dp))
-                    .border(1.dp, Black30, RoundedCornerShape(16.dp)),
-                trailingIcon = {
-                    IconButton(
-                        onClick = { /* Ação do ícone de microfone */ },
-                        modifier = Modifier.background(Blue, RoundedCornerShape(14.dp))
-                    ) {
-                        Icon(imageVector = Icons.Default.Mic, contentDescription = "Icon Mic", tint = Color.White)
-                    }
-                },
-                colors = TextFieldDefaults.colors(
-                    focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent
-                ),
-                shape = RoundedCornerShape(16.dp)
-            )
+            FieldMicAndScanner()
 
             Spacer(modifier = Modifier.height(10.dp))
 
@@ -133,6 +109,47 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
             }
         }
     }
+}
+
+@Composable
+fun FieldMicAndScanner(){
+    TextField(
+        value = "",
+        onValueChange = { /* Lógica para atualizar o texto */ },
+        label = { Text(text = "Informe novo endereço") },
+        modifier = Modifier
+            .clip(RoundedCornerShape(14.dp))
+            .fillMaxWidth()
+            .height(65.dp)
+            .padding(8.dp)
+            .background(Color.White, RoundedCornerShape(14.dp))
+            .border(1.dp, Black30, RoundedCornerShape(14.dp)),
+        trailingIcon = {
+            Row {
+                IconButton(
+                    onClick = { /* Ação do ícone de microfone */ },
+                    modifier = Modifier.size(30.dp)
+                ) {
+                    Icon(imageVector = Icons.Default.Flip, contentDescription = "Icon Mic", tint = Blue)
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                IconButton(
+                    onClick = { /* Ação do ícone de microfone */ },
+                    modifier = Modifier.size(30.dp)
+                ) {
+                    Icon(imageVector = Icons.Default.Mic, contentDescription = "Icon Mic", tint = Blue)
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+            }
+
+        },
+        colors = TextFieldDefaults.colors(
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent
+        ),
+        shape = RoundedCornerShape(16.dp)
+    )
 }
 
 @Composable

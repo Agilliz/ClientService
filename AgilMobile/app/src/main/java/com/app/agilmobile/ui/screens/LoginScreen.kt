@@ -43,11 +43,7 @@ fun LoginScreen(navController: NavHostController, viewModel: LoginViewModel = vi
     AnimatedVisibility(
         visible = visible,
         enter = fadeIn(animationSpec = tween(durationMillis = 1000)) + slideInHorizontally(
-            initialOffsetX = { it }, animationSpec = tween(durationMillis = 1000)
-        ),
-        exit = fadeOut(animationSpec = tween(durationMillis = 1000)) + slideOutHorizontally(
-            targetOffsetX = { it }, animationSpec = tween(durationMillis = 1000)
-        )
+            initialOffsetX = { it }, animationSpec = tween(durationMillis = 1000))
     ) {
         Box(
             modifier = Modifier

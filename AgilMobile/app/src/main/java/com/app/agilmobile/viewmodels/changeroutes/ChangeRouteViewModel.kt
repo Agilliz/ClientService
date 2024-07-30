@@ -14,23 +14,23 @@ class ChangeRouteViewModel : ViewModel() {
 
     val itemsInit = mutableStateOf(
         listOf(
-            DeliverieItem("departure", "Rua A, 123", "11111-111"),
-            DeliverieItem("fate", "Rua Z, 555", "11111-111"),
+            DeliveryItem("departure", "Rua A, 123", "11111-111"),
+            DeliveryItem("fate", "Rua Z, 555", "11111-111"),
         )
     )
 
     val itemsStops = mutableStateOf(
         listOf(
-            DeliverieItem(address = "Rua A, 123", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua Z, 555", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua A, 123", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua Z, 555", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua A, 123", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua Z, 555", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua A, 123", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua Z, 555", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua A, 123", zipCode = "11111-111"),
-            DeliverieItem(address = "Rua Z, 555", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua A, 123", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua Z, 555", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua A, 123", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua Z, 555", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua A, 123", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua Z, 555", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua A, 123", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua Z, 555", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua A, 123", zipCode = "11111-111"),
+            DeliveryItem(address = "Rua Z, 555", zipCode = "11111-111"),
         )
     )
 
@@ -42,23 +42,23 @@ class ChangeRouteViewModel : ViewModel() {
         }
     }
 
-    fun onEditClick(item: DeliverieItem) {
+    fun onEditClick(item: DeliveryItem) {
         viewModelScope.launch {
             // Lógica para editar
         }
     }
 
-    fun onPrioritizeClick(item: DeliverieItem) {
+    fun onPrioritizeClick(item: DeliveryItem) {
         viewModelScope.launch {
             // Lógica para priorizar
         }
     }
 
-    fun onDeleteClick(item: DeliverieItem) {
+    fun onDeleteClick(item: DeliveryItem) {
         viewModelScope.launch {
             // Lógica para excluir
         }
     }
 }
 
-data class DeliverieItem(val type: String? = null, val address: String, val zipCode: String)
+data class DeliveryItem(val type: String? = null, val address: String, val zipCode: String)
