@@ -1,4 +1,4 @@
-package com.app.agilmobile.ui.components
+package com.app.agilmobile.ui.components.general.temporaries
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,8 +24,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
 import com.app.agilmobile.ui.theme.AgilMobileTheme
-import com.app.agilmobile.ui.theme.Blue
-import kotlinx.coroutines.delay
 
 
 @Composable

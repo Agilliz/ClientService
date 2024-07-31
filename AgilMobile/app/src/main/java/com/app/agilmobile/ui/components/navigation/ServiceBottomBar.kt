@@ -1,4 +1,4 @@
-package com.app.agilmobile.ui.components
+package com.app.agilmobile.ui.components.navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -115,7 +115,7 @@ fun ServiceBottomBar(navController: NavController, onSectionSelected: (SectionSe
                 .offset(y = (-20).dp)
                 .align(Alignment.TopCenter)
                 .background(Orange, shape = CircleShape)
-                .clickable { navController.navigate("navigation_screen") }) {
+                .clickable { navController.navigate("route_screen") }) {
             Icon(
                 imageVector = Icons.Default.LocationOn,
                 contentDescription = "Localização",

@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.app.agilmobile.ui.components.changeroutes.ChangeableDeliveryCard
+import com.app.agilmobile.ui.components.changeroutes.MicAndScannerField
 import com.app.agilmobile.ui.theme.*
 import com.app.agilmobile.viewmodels.changeroutes.ChangeRouteViewModel
 
@@ -42,7 +44,7 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
                 .fillMaxSize()
                 .windowInsetsPadding(WindowInsets.statusBars)
         ) {
-            FieldMicAndScanner()
+            MicAndScannerField()
 
             Spacer(modifier = Modifier.height(10.dp))
 
@@ -55,7 +57,7 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
             Spacer(modifier = Modifier.height(10.dp))
 
             itemsInit.forEach { item ->
-                CardDeliverieChangeable(
+                ChangeableDeliveryCard(
                     address = item.address,
                     zipCode = item.zipCode,
                     icon = viewModel.getIconForType(item.type),
@@ -75,7 +77,7 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
 
             Column(modifier = Modifier.verticalScroll(scrollState)) {
                 itemsStops.forEach { item ->
-                    CardDeliverieChangeable(
+                    ChangeableDeliveryCard(
                         address = item.address,
                         zipCode = item.zipCode,
                         icon = viewModel.getIconForType(item.type),
@@ -111,127 +113,7 @@ fun ChangeRouteScreen(navController: NavController, viewModel: ChangeRouteViewMo
     }
 }
 
-@Composable
-fun FieldMicAndScanner(){
-    TextField(
-        value = "",
-        onValueChange = { /* Lógica para atualizar o texto */ },
-        label = { Text(text = "Informe novo endereço") },
-        modifier = Modifier
-            .clip(RoundedCornerShape(14.dp))
-            .fillMaxWidth()
-            .height(65.dp)
-            .padding(8.dp)
-            .background(Color.White, RoundedCornerShape(14.dp))
-            .border(1.dp, Black30, RoundedCornerShape(14.dp)),
-        trailingIcon = {
-            Row {
-                IconButton(
-                    onClick = { /* Ação do ícone de microfone */ },
-                    modifier = Modifier.size(30.dp)
-                ) {
-                    Icon(imageVector = Icons.Default.Flip, contentDescription = "Icon Mic", tint = Blue)
-                }
-                Spacer(modifier = Modifier.width(10.dp))
-                IconButton(
-                    onClick = { /* Ação do ícone de microfone */ },
-                    modifier = Modifier.size(30.dp)
-                ) {
-                    Icon(imageVector = Icons.Default.Mic, contentDescription = "Icon Mic", tint = Blue)
-                }
-                Spacer(modifier = Modifier.width(10.dp))
-            }
 
-        },
-        colors = TextFieldDefaults.colors(
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            unfocusedContainerColor = Color.Transparent
-        ),
-        shape = RoundedCornerShape(16.dp)
-    )
-}
-
-@Composable
-fun CardDeliverieChangeable(
-    address: String,
-    zipCode: String,
-    icon: ImageVector,
-    onEditClick: () -> Unit,
-    onPrioritizeClick: () -> Unit,
-    onDeleteClick: () -> Unit
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(IntrinsicSize.Min)
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min)
-                .background(Color.White)
-                .padding(10.dp)
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = "Icon NextDeliverie",
-                    modifier = Modifier.size(30.dp),
-                    tint = Orange
-                )
-            }
-            Spacer(modifier = Modifier.width(10.dp))
-            Column(
-                modifier = Modifier.height(IntrinsicSize.Min)
-            ) {
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column {
-                        Text(
-                            text = address, fontSize = 16.sp, fontWeight = FontWeight.SemiBold
-                        )
-                        Spacer(modifier = Modifier.height(6.dp))
-                        Text(
-                            text = zipCode, fontSize = 12.sp, fontWeight = FontWeight.Normal
-                        )
-                    }
-
-                    Column(
-                        verticalArrangement = Arrangement.Center,
-                        modifier = Modifier.fillMaxHeight()
-                    ) {
-                        IconButton(onClick = { expanded = true }) {
-                            Icon(
-                                imageVector = Icons.Default.MoreHoriz,
-                                contentDescription = "Icon Three points"
-                            )
-                        }
-                        DropdownMenu(
-                            expanded = expanded,
-                            onDismissRequest = { expanded = false }
-                        ) {
-                            DropdownMenuItem(text = { Text("Editar") }, onClick = onEditClick)
-                            DropdownMenuItem(text = { Text("Priorizar") }, onClick = onPrioritizeClick)
-                            DropdownMenuItem(text = { Text("Excluir") }, onClick = onDeleteClick)
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable

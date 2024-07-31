@@ -1,4 +1,4 @@
-package com.app.agilmobile.ui.components
+package com.app.agilmobile.ui.components.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

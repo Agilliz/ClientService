@@ -11,13 +11,12 @@ import androidx.compose.material.icons.filled.TravelExplore
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.agilmobile.ui.components.InfoCard
-import com.app.agilmobile.ui.components.InfoItem
-import com.app.agilmobile.ui.components.SearchBar
+import com.app.agilmobile.ui.components.service.InfoCard
+import com.app.agilmobile.ui.components.service.InfoItem
+import com.app.agilmobile.ui.components.general.search.SearchBar
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange

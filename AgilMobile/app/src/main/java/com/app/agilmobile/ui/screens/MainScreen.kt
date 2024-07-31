@@ -11,13 +11,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.app.agilmobile.ui.components.DrawerContent
-import com.app.agilmobile.ui.components.FunUnderConstruction
-import com.app.agilmobile.ui.components.MainBottomBar
-import com.app.agilmobile.ui.components.TopBar
+import com.app.agilmobile.ui.components.drawer.DrawerContent
+import com.app.agilmobile.ui.components.general.temporaries.FunUnderConstruction
+import com.app.agilmobile.ui.components.navigation.MainBottomBar
+import com.app.agilmobile.ui.components.navigation.TopBar
 import com.app.agilmobile.ui.sections.EmptySection
 import com.app.agilmobile.ui.sections.deliveries.*
-import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.sections.mainsScreen.wallet.Wallet
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.viewmodels.MainScreenViewModel

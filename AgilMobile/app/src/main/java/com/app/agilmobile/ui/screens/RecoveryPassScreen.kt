@@ -25,9 +25,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
-import com.app.agilmobile.ui.components.ArrowBackTopBar
-import com.app.agilmobile.ui.components.ButtonStandard
-import com.app.agilmobile.ui.components.TextFieldStandard
+import com.app.agilmobile.ui.components.navigation.ArrowBackTopBar
+import com.app.agilmobile.ui.components.general.buttons.ButtonStandard
+import com.app.agilmobile.ui.components.general.fields.TextFieldStandard
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Grey
 import com.app.agilmobile.ui.theme.Orange

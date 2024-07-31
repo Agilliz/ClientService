@@ -17,9 +17,9 @@ import com.app.agilmobile.ui.routes.RoutesNavigationGraph.FUNCTION_CONSTRUCTION
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.EMPTY_SECTION
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.RECOVERY_PASSWORD
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.WALLET_SECTION
-import com.app.agilmobile.ui.routes.RoutesNavigationGraph.NAVIGATION_SCREEN
+import com.app.agilmobile.ui.routes.RoutesNavigationGraph.ROUT_SCREEN
 import com.app.agilmobile.ui.routes.RoutesNavigationGraph.CHANGE_ROUTE_SCREEN
-import com.app.agilmobile.ui.components.FunUnderConstruction
+import com.app.agilmobile.ui.components.general.temporaries.FunUnderConstruction
 import com.app.agilmobile.ui.screens.ChangeRouteScreen
 import com.app.agilmobile.ui.screens.LoginScreen
 import com.app.agilmobile.ui.screens.MainScreen
@@ -33,7 +33,7 @@ import com.app.agilmobile.ui.sections.deliveries.NextDeliverySection
 import com.app.agilmobile.ui.sections.deliveries.packages.PackagesSection
 import com.app.agilmobile.ui.sections.deliveries.ScriptsSection
 import com.app.agilmobile.ui.sections.mainsScreen.wallet.Wallet
-import com.example.composeapp.ui.screens.NavigationScreen
+import com.example.composeapp.ui.screens.RouteScreen
 
 object RoutesNavigationGraph {
     const val SPLASHSCREEN = "Splash"
@@ -49,7 +49,7 @@ object RoutesNavigationGraph {
     const val FUNCTION_CONSTRUCTION = "function_construction"
     const val EMPTY_SECTION = "empty_section"
     const val WALLET_SECTION = "wallet_section"
-    const val NAVIGATION_SCREEN = "navigation_screen"
+    const val ROUT_SCREEN = "route_screen"
     const val CHANGE_ROUTE_SCREEN = "change_route_screen"
 
 }
@@ -76,8 +76,8 @@ fun AppNavigation() {
         composable(route = SERVICESCREEN) {
             ServiceScreen(navController = navController)
         }
-        composable(route = NAVIGATION_SCREEN) {
-            NavigationScreen(navController = navController)
+        composable(route = ROUT_SCREEN) {
+            RouteScreen(navController = navController)
         }
         composable(route = CHANGE_ROUTE_SCREEN) {
             ChangeRouteScreen(navController = navController)

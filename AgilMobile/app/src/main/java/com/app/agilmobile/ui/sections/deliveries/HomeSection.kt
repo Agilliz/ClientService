@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.app.agilmobile.R
-import com.app.agilmobile.ui.components.CardService
+import com.app.agilmobile.ui.components.main.CardService
 import com.app.agilmobile.ui.theme.AgilMobileTheme
 import com.app.agilmobile.ui.theme.Orange
 

@@ -1,4 +1,4 @@
-package com.app.agilmobile.ui.components
+package com.app.agilmobile.ui.components.general.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
